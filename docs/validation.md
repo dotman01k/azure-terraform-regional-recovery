@@ -13,8 +13,7 @@ Preparation date: 2026-10-22.
 The preparation environment denied the Unix socket needed by the real AzureRM provider plugin.
 Local provider-schema validation and Terraform mock plans therefore did NOT pass locally and
 are not claimed as local successes. The hosted GitHub CI runs all roots' terraform validate and
-11 mock-provider plan tests plus the Python suite, with no Azure credentials. Its independent
-result is the authority for those checks. See the Actions tab for the published commit.
+11 mock-provider plan tests plus the Python suite, with no Azure credentials. Hosted run [39737693830](https://github.com/dotman01k/azure-terraform-regional-recovery/actions/runs/39737693830) passed on implementation commit `758d75cc8d7f9746c17c7f7a9337757a4530c1c8`: all seven roots/modules validated, all 11 Terraform mock-provider tests passed, and all 44 Python tests passed. See terraform-ci.txt for the condensed provider/test evidence. This documentation update does not change the tested implementation.
 
 Not established by offline tests: Azure API acceptance, regional SKU/HA support, private DNS
 reachability, Entra SQL authorization, replica lag, stop/fence enforcement against all application
