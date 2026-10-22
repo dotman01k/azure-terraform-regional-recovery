@@ -2,7 +2,7 @@
 
 Preparation date: 2026-10-22.
 
-- 41 Python policy/controller tests passed locally, including stale evidence, missing fencing,
+- 44 Python policy/controller tests passed locally, including stale evidence, missing fencing,
   unknown/duplicate writer ownership, explicit data-loss acknowledgement, reverse epochs,
   unsafe import plans, distributed lease handling and uncertain-promotion retry behavior.
 - Terraform 1.13.0 fmt parsed all configuration and formatting checks passed.

@@ -120,6 +120,7 @@ NETWORK_TYPES={'azurerm_resource_group','azurerm_virtual_network','azurerm_subne
 
 
 def inspect_plan(plan,stack,m=None,journal=None,now=None):
+    require(stack in ('network','primary','replica','recovered','replica-detach','routing'),'Unknown stack')
     require(plan.get('errored') is not True,'Terraform plan errored')
     require(plan.get('complete') is True and not plan.get('deferred_changes'),'Incomplete/deferred plans are prohibited')
     changes=plan.get('resource_changes',[])
@@ -129,6 +130,7 @@ def inspect_plan(plan,stack,m=None,journal=None,now=None):
             continue
         action=entry['change']['actions']
         address=entry['address'];kind=entry['type']
+        require(action in (['no-op'],['create'],['update'],['forget'],['delete'],['delete','create'],['create','delete']),'Unknown resource action')
         require('delete' not in action,'Deletes and replacements are prohibited: '+address)
         if stack=='replica-detach':
             require(address.startswith('module.replica.') and kind in DATABASE_TYPES,'Unexpected state detachment target')
@@ -138,7 +140,9 @@ def inspect_plan(plan,stack,m=None,journal=None,now=None):
         if stack=='network':
             if journal and kind=='azurerm_network_security_group' and address.endswith('["primary"]'):
                 rules=(entry['change'].get('after') or {}).get('security_rule',[])
-                require(any(r.get('name')=='database-client-fence' and r.get('access')=='Deny' for r in rules),'Cannot remove the incident fence')
+                expected={'name':'database-client-fence','priority':100,'direction':'Inbound','access':'Deny','protocol':'Tcp','source_port_range':'*','destination_port_range':'5432','source_address_prefix':'*','destination_address_prefix':'*'}
+                require(sum(all(r.get(k)==v for k,v in expected.items()) for r in rules)==1,'Cannot weaken the incident fence')
+                require(not any(r.get('priority',4096)<100 for r in rules),'Cannot bypass the incident fence')
             require(kind in NETWORK_TYPES and not address.startswith('module.'),'Unexpected network resource')
         elif stack in ('primary','replica','recovered'):
             if journal and stack in ('primary','replica'):

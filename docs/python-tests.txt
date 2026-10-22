@@ -1,3 +1,6 @@
+test_unknown_action (test_recovery.AdditionalGateTests.test_unknown_action) ... ok
+test_unknown_empty_stack (test_recovery.AdditionalGateTests.test_unknown_empty_stack) ... ok
+test_weakened_incident_fence (test_recovery.AdditionalGateTests.test_weakened_incident_fence) ... ok
 test_same_lineage (test_recovery.AdoptionTests.test_same_lineage) ... ok
 test_two_owners (test_recovery.AdoptionTests.test_two_owners) ... ok
 test_valid (test_recovery.AdoptionTests.test_valid) ... ok
@@ -41,6 +44,6 @@ test_wrong_hostname (test_recovery.SafetyTests.test_wrong_hostname) ... ok
 test_wrong_source (test_recovery.SafetyTests.test_wrong_source) ... ok
 
 ----------------------------------------------------------------------
-Ran 41 tests in 0.010s
+Ran 44 tests in 0.010s
 
 OK

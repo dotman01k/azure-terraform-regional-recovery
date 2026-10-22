@@ -138,3 +138,13 @@ class DiscoveryTests(unittest.TestCase):
   r={'primary':{'location':'eastus','cidr':'10.60.0.0/16','database_cidr':'10.60.0.0/24','client_cidr':'10.60.1.0/24'},'recovery':{'location':'westus3','cidr':'10.60.0.0/16','database_cidr':'10.60.2.0/24','client_cidr':'10.60.3.0/24'}}
   with self.assertRaises(UnsafeRecovery):topology(r)
 if __name__=='__main__':unittest.main()
+
+class AdditionalGateTests(unittest.TestCase):
+ def test_unknown_empty_stack(self):
+  with self.assertRaises(UnsafeRecovery):inspect_plan(plan(),'invalid')
+ def test_unknown_action(self):
+  with self.assertRaises(UnsafeRecovery):inspect_plan(plan(change('azurerm_virtual_network.region','azurerm_virtual_network',['invalid'])),'network')
+ def test_weakened_incident_fence(self):
+  rule={'name':'database-client-fence','priority':100,'direction':'Inbound','access':'Deny','protocol':'Tcp','source_port_range':'*','destination_port_range':'5432','source_address_prefix':'10.60.1.0/24','destination_address_prefix':'*'}
+  c=change('azurerm_network_security_group.database["primary"]','azurerm_network_security_group',['update'],{'security_rule':[rule]})
+  with self.assertRaises(UnsafeRecovery):inspect_plan(plan(c),'network',manifest(),journal())

@@ -1,8 +1,6 @@
 mock_provider "azurerm" {}
 variables {
-  subscription_id = "00000000-0000-0000-0000-000000000001"
-}
-variables {
+  subscription_id     = "00000000-0000-0000-0000-000000000001"
   resource_group_name = "rg-drpg-recovery"
   zone_name           = "drpg.recovery.internal"
   writer_fqdn         = "drpg-primary.postgres.database.azure.com"
