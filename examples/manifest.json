@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source": {
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg-drpg-primary/providers/Microsoft.DBforPostgreSQL/flexibleServers/drpg-primary",
+    "fqdn": "drpg-primary.postgres.database.azure.com",
+    "nsg_id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg-drpg-primary/providers/Microsoft.Network/networkSecurityGroups/nsg-drpg-primary-database",
+    "subnet_id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg-drpg-primary/providers/Microsoft.Network/virtualNetworks/vnet-drpg-primary/subnets/database"
+  },
+  "target": {
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/rg-drpg-recovery/providers/Microsoft.DBforPostgreSQL/flexibleServers/drpg-replica",
+    "fqdn": "drpg-replica.postgres.database.azure.com"
+  },
+  "routing": {
+    "zone_name": "drpg.recovery.internal",
+    "resource_group_name": "rg-drpg-recovery"
+  },
+  "control": {
+    "account": "replacewithbackend",
+    "container": "drcontrol"
+  }
+}

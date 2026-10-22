@@ -1,0 +1,6 @@
+resource_group_name  = "rg-dr-state"
+storage_account_name = "<existing-backend-account>"
+container_name       = "tfstate"
+key                  = "regional-recovery/network.tfstate"
+use_azuread_auth     = true
+use_oidc             = true

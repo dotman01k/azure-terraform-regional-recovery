@@ -1,0 +1,46 @@
+test_same_lineage (test_recovery.AdoptionTests.test_same_lineage) ... ok
+test_two_owners (test_recovery.AdoptionTests.test_two_owners) ... ok
+test_valid (test_recovery.AdoptionTests.test_valid) ... ok
+test_wrong_import (test_recovery.AdoptionTests.test_wrong_import) ... ok
+test_canonical_tls_name (test_recovery.DiscoveryTests.test_canonical_tls_name) ... ok
+test_multiple_records (test_recovery.DiscoveryTests.test_multiple_records) ... ok
+test_overlap (test_recovery.DiscoveryTests.test_overlap) ... ok
+test_stale_epoch (test_recovery.DiscoveryTests.test_stale_epoch) ... ok
+test_nested_renews_only (test_recovery.LockTests.test_nested_renews_only) ... ok
+test_release (test_recovery.LockTests.test_release) ... ok
+test_saved_ack_required (test_recovery.LockTests.test_saved_ack_required) ... ok
+test_uncertain_promotion_observed (test_recovery.LockTests.test_uncertain_promotion_observed) ... ok
+test_adoption_no_mutation (test_recovery.PlanTests.test_adoption_no_mutation) ... ok
+test_epoch_rollback (test_recovery.PlanTests.test_epoch_rollback) ... ok
+test_forget_restricted (test_recovery.PlanTests.test_forget_restricted) ... ok
+test_incomplete (test_recovery.PlanTests.test_incomplete) ... ok
+test_no_automatic_failback (test_recovery.PlanTests.test_no_automatic_failback) ... ok
+test_noop_import (test_recovery.PlanTests.test_noop_import) ... ok
+test_original_stacks_frozen (test_recovery.PlanTests.test_original_stacks_frozen) ... ok
+test_replace_rejected (test_recovery.PlanTests.test_replace_rejected) ... ok
+test_route_requires_proof (test_recovery.PlanTests.test_route_requires_proof) ... ok
+test_route_verified (test_recovery.PlanTests.test_route_verified) ... ok
+test_unknown_writer (test_recovery.PlanTests.test_unknown_writer) ... ok
+test_unrelated_resource (test_recovery.PlanTests.test_unrelated_resource) ... ok
+test_wrong_import (test_recovery.PlanTests.test_wrong_import) ... ok
+test_allow_is_not_fence (test_recovery.SafetyTests.test_allow_is_not_fence) ... ok
+test_bound_authorization (test_recovery.SafetyTests.test_bound_authorization) ... ok
+test_good_fence (test_recovery.SafetyTests.test_good_fence) ... ok
+test_loss_ack_required (test_recovery.SafetyTests.test_loss_ack_required) ... ok
+test_manifest (test_recovery.SafetyTests.test_manifest) ... ok
+test_manifest_mutation (test_recovery.SafetyTests.test_manifest_mutation) ... ok
+test_partial_source_fence (test_recovery.SafetyTests.test_partial_source_fence) ... ok
+test_password_auth (test_recovery.SafetyTests.test_password_auth) ... ok
+test_precedence_bypass (test_recovery.SafetyTests.test_precedence_bypass) ... ok
+test_promoted_cannot_keep_source (test_recovery.SafetyTests.test_promoted_cannot_keep_source) ... ok
+test_running_source (test_recovery.SafetyTests.test_running_source) ... ok
+test_same_server_rejected (test_recovery.SafetyTests.test_same_server_rejected) ... ok
+test_stale_and_future (test_recovery.SafetyTests.test_stale_and_future) ... ok
+test_unattached_fence (test_recovery.SafetyTests.test_unattached_fence) ... ok
+test_wrong_hostname (test_recovery.SafetyTests.test_wrong_hostname) ... ok
+test_wrong_source (test_recovery.SafetyTests.test_wrong_source) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.010s
+
+OK

@@ -1,0 +1,12 @@
+**/.terraform/
+**/terraform.tfstate*
+*.tfplan
+*.plan.json
+*.tfvars
+*.tfvars.json
+!examples/*.tfvars.json
+__pycache__/
+*.pyc
+.run/
+*.local.json
+backend.hcl
